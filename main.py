@@ -1,5 +1,5 @@
 import pygame
-from files.constants import WIDTH, HEIGHT, BLUE, WHITE_PIECES, DEPTH, BLACK_PIECES, INF
+from files.constants import WIDTH, HEIGHT, BLUE, WHITE_PIECES, DEPTH, BLACK_PIECES, INF, GREY
 from files.board import Board
 import time
 from files.search import minimax
@@ -40,6 +40,33 @@ def obtain_piece(win, board, piece):
     board.draw(WIN)
 
 
+def get_depth(win):
+    while True:
+        pygame.draw.rect(WIN, GREY, (200, 325, 400, 150), False)
+        pygame.draw.rect(WIN, BLUE,  (190, 325, 10, 150))
+        for i in range(1, 5):
+            d = str(i)
+            textsurface = font.render(d, False, BLUE)
+            size = textsurface.get_size()
+            WIN.blit(textsurface, (225 + 100*(i-1), 400 - size[1] / 2))
+            pygame.draw.rect(WIN, BLUE,  (290+100*(i-1), 325, 10, 150))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = event.pos
+                x, y = pos
+                if y in range(325, 325+150):
+                    if x in range(200, 290):
+                        return 1
+                    elif x in range(300, 390):
+                        return 2
+                    elif x in range(400, 490):
+                        return 3
+                    elif x in range(500, 590):
+                        return 4
+                
 def main():
     '''Main program for running the game'''
     run = True
@@ -50,6 +77,9 @@ def main():
 
     # variable to store selected piece
     piece = None
+
+    depth = get_depth(WIN)
+
     while run:
         clock.tick(FPS)
 
@@ -57,14 +87,14 @@ def main():
         board.draw(WIN)
         # If it is black's/computer's turn
         if board.turn == BLACK_PIECES:
-            evaluation, new_board = minimax(board, DEPTH, False)
+            evaluation, new_board = minimax(board, depth, False)
             board = new_board
             board.draw(WIN)
             end_screen(board, WIN)
 
         # To have second player as ai uncomment the next section and comment out the for loop
         # elif board.turn == WHITE_PIECES:
-        #     evaluation, new_board = minimax(board, DEPTH, True)
+        #     evaluation, new_board = minimax(board, depth, True)
         #     board = new_board
         #     board.draw(WIN)
         #     end_screen(board, WIN)

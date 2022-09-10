@@ -14,6 +14,7 @@ DARK_SQUARES_MOVE = (200, 200, 36)
 LIGHT_SQUARES_MOVE = (255, 225, 0)
 BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
+GREY = (128, 128, 128)
 
 # DEPTH for move search
 DEPTH = 2
