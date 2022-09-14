@@ -6,7 +6,7 @@ from files.search import minimax
 
 
 FPS = 60
-
+Temp = None
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Checkers')
 
