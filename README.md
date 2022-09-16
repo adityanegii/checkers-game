@@ -3,3 +3,9 @@ This is a project I made for one of my CEGEP classes. It is a simple checkers ga
 The controls are very simple, to move a piece, drag it to a valid square(shown by blue dots). If you are chain capturing, for each capture you will need to drag and drop the piece. Before the game start, you can set a difficulty level (1 to 4) deciding how many moves deep the computer will look into. 
 
 This project was inspired by TechwithTim's checkers project(https://github.com/techwithtim/Python-Checkers-AI)
+
+To run this project, open the command prompt 
+1. Make sure python is installed (run the command : python -V). Install python if it is not installed.
+2. Then run the command: py -m ensurepip --upgrade on Windows and python -m ensurepip --upgrade on MacOS to install the pip tool.
+3. Finally, install the pygame library using the command py -m pip install -U pygame --user on Windows and python3 -m pip install -U pygame --user on MacOs.
+4. Run the main file and enjoy!
