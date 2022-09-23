@@ -29,7 +29,8 @@ def end_screen(board, win):
         win.blit(textsurface, (400 - size[0] / 2, 400 - size[1] / 2))
         pygame.display.update()
         time.sleep(5)
-        pygame.quit()
+        return False
+    return True
 
 
 def obtain_piece(win, board, piece):
@@ -89,7 +90,7 @@ def main():
             evaluation, new_board = minimax(board, depth, False)
             board = new_board
             board.draw(WIN)
-            end_screen(board, WIN)
+            run = end_screen(board, WIN)
 
         # To have second player as ai uncomment the next section and comment out the for loop
         # elif board.turn == WHITE_PIECES:

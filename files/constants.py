@@ -22,4 +22,4 @@ INF = float('inf')
 
 # Crown source: http://clipart-library.com/clipart/crown-clip-art-18.htm
 CROWN = pygame.transform.scale(
-    pygame.image.load('C:/Users/negia/Desktop/python projects/CHECKERS/files/assets/crown.jpg'), (50, 50))
+    pygame.image.load('files/assets/crown.jpg'), (50, 50))
